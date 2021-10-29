@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -27,7 +28,7 @@ import lombok.NoArgsConstructor;
 public class Machine implements Serializable {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy =  GenerationType.IDENTITY)
     private int id;
     private String brand;
     private int year;
@@ -36,6 +37,6 @@ public class Machine implements Serializable {
     private String description;
     private List<Message> messages;
     private List<Reservation> reservations;
-    private String score;
+    private String score; 
     
 }
