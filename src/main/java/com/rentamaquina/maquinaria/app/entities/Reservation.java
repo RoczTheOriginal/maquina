@@ -33,6 +33,6 @@ public class Reservation implements Serializable{
     private Date devolutionDate;
     private String status;
     private Machine machine;
-    private List<Message> messages;
+    //private List<Message> messages;
     private Client client;
 }

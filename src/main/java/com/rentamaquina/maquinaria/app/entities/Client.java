@@ -38,6 +38,6 @@ public class Client implements Serializable {
     @Column(name="email",nullable=false,length=50,unique=true)
     private String email;
     private String password;
-    private List<Message> messages;
-    private List<Reservation> reservations;
+   // private List<Message> messages;
+    //private List<Reservation> reservations;
 }

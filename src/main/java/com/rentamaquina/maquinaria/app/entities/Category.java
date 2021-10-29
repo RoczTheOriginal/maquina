@@ -31,5 +31,5 @@ public class Category implements Serializable {
     private int id;
     private String name;
     private String description;
-    private List<Machine> machines;
+   // private List<Machine> machines;
 }

@@ -35,8 +35,8 @@ public class Machine implements Serializable {
     private Category category;
     private String name;
     private String description;
-    private List<Message> messages;
-    private List<Reservation> reservations;
+   // private List<Message> messages;
+   // private List<Reservation> reservations;
     private String score; 
     
 }
