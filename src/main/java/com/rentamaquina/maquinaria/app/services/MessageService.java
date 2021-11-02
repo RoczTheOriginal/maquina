@@ -43,8 +43,8 @@ public class MessageService {
      * @param message
      * @return 
      */
-    public Message save(Message message){
-        if(message.getIdMessage() !=null){
+     public Message save(Message message){
+        if(message.getMessageText() != null && message.getMachine() != null && message.getClient() != null){
             return repository.save(message);
         }else{
             Optional<Message> resultado = repository.getMessage(message.getIdMessage());

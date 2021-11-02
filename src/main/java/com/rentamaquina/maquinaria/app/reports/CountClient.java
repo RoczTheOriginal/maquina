@@ -7,6 +7,22 @@ import com.rentamaquina.maquinaria.app.entities.Client;
  * @author ---------------
  */
 public class CountClient {
+
+    public void setTotal(Long total) {
+        this.total = total;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Long getTotal() {
+        return total;
+    }
+
+    public Client getClient() {
+        return client;
+    }
     private Long total;
     private Client client;
 
@@ -15,22 +31,7 @@ public class CountClient {
         this.client = client;
     }
 
-    public Long getTotal() {
-        return total;
-    }
-
-    public void setTotal(Long total) {
-        this.total = total;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
+    
     
 
 }
