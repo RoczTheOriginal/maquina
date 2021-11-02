@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.rentamaquina.app.controllers;
 
-import com.rentamaquina.maquinaria.app.entities.Machine;
-import com.rentamaquina.maquinaria.app.services.MachineService;
+import com.rentamaquina.maquinaria.app.entities.Score;
+import com.rentamaquina.maquinaria.app.services.ScoreService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,36 +18,55 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author ROCKS
+ * @author  -------------
  */
 @RestController
-@RequestMapping("Machine")
+@RequestMapping("Score")
 @CrossOrigin(origins = "*")
-public class MachineController {
+public class ScoreController {
     
     @Autowired
-    private MachineService service;
+    private ScoreService service;
     
+    /**
+     * GET
+     * @return 
+     */
     @GetMapping("/all")
-    public List<Machine> findAllMachine(){
-        return service.getMachines();
+    public List<Score> getScores(){
+        return service.getAll();
     }
     
+    /**
+     * POST
+     * @param score
+     * @return 
+     */
     @PostMapping("/save")
-    public ResponseEntity addMachine(@RequestBody Machine machine){
-        service.save(machine);
-        return ResponseEntity.status(201).build();
+    @ResponseStatus(HttpStatus.CREATED)
+    public Score save(@RequestBody Score score) {
+        return service.save(score);
     }
     
+    /**
+     * PUT
+     * @param score
+     * @return 
+     */
     @PutMapping("/update")
-    public ResponseEntity updateMachine(@RequestBody Machine machine){
-        service.update(machine);
-        return ResponseEntity.status(201).build();
+    @ResponseStatus(HttpStatus.CREATED)
+    public Score update(@RequestBody Score score) {
+        return service.update(score);
     }
     
+    /**
+     * DELETE
+     * @param scoreId
+     * @return 
+     */
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int machineId) {
-        return service.deleteMachine(machineId);
+    public boolean delete(@PathVariable("id") int scoreId) {
+        return service.delete(scoreId);
     }
 }

@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.rentamaquina.app.controllers;
 
-import com.rentamaquina.maquinaria.app.entities.Machine;
-import com.rentamaquina.maquinaria.app.services.MachineService;
+import com.rentamaquina.maquinaria.app.entities.Category;
+import com.rentamaquina.maquinaria.app.services.CategoryService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,36 +19,37 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author ROCKS
+ * @author  -----------------
  */
 @RestController
-@RequestMapping("Machine")
+@RequestMapping("Category")
 @CrossOrigin(origins = "*")
-public class MachineController {
+public class CategoryController {
     
     @Autowired
-    private MachineService service;
+    private CategoryService service;
     
     @GetMapping("/all")
-    public List<Machine> findAllMachine(){
-        return service.getMachines();
+    public List<Category> findAll(){
+        return service.getCategories();
     }
     
     @PostMapping("/save")
-    public ResponseEntity addMachine(@RequestBody Machine machine){
-        service.save(machine);
+    public ResponseEntity addCategory(@RequestBody Category category){
+        service.save(category);
         return ResponseEntity.status(201).build();
     }
     
     @PutMapping("/update")
-    public ResponseEntity updateMachine(@RequestBody Machine machine){
-        service.update(machine);
+    public ResponseEntity updateCategory(@RequestBody Category category){
+        service.update(category);
         return ResponseEntity.status(201).build();
     }
     
+    
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int machineId) {
-        return service.deleteMachine(machineId);
+    public boolean delete(@PathVariable("id") int categoryId) {
+        return service.deleteCategory(categoryId);
     }
 }

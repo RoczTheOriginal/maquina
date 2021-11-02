@@ -1,0 +1,12 @@
+package com.rentamaquina.maquinaria.app.crudRepository;
+
+import com.rentamaquina.maquinaria.app.entities.Admin;
+import org.springframework.data.repository.CrudRepository;
+
+/**
+ *
+ * @author @ROCKS
+ */
+public interface AdminCrudRepository extends CrudRepository<Admin,Integer> {
+    
+}
